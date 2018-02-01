@@ -32,7 +32,7 @@
     "start": "node src-server-feathers/",
     "mocha": "mocha test/ --recursive --exit",
     "clean": "del public/* '!public/favicon.ico'",
-    "clean:vue-client": "del build-client-vue/*",
+    "clean:vue-client": "del build-client-vue/* '!build-client-vue/favicon.ico'",
     "dev:vue-client": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config src-client-vue/webpack.config.js",
     "build:vue-client": "cross-env NODE_ENV=production webpack --progress --hide-modules  --config src-client-vue/webpack.config.js",
     "clean:react-client": "del build-client-react/* '!build-client-react/index.html'",
