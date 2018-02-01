@@ -2,7 +2,18 @@
 
 > server development box
 
+## About
+
 A project to create a feathers development environment with updated dependcies and plug that into an ideal client development/production environment using Vue.js and/or React.js.
+
+[Feathers](http://feathersjs.com).
+VueJs
+ReactJs
+
+major influences
+
+[feathers-vuejs](https://github.com/lewebsimple/feathers-vuejs).
+[vue-multiple-pages](https://github.com/Plortinus/vue-multiple-pages).
 
 Project goals
 
@@ -11,9 +22,9 @@ Project goals
 - provide configuration functionality.
 - provide deployment functionality.
 
-## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+
+This project uses  An open source web framework for building modern real-time applications.
 
 ## Getting Started
 

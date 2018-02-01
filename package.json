@@ -1,7 +1,7 @@
 {
   "name": "tesseract",
   "description": "server development box",
-  "version": "0.1.0",
+  "version": "0.1.10",
   "homepage": "",
   "main": "src-server-feathers",
   "keywords": [
@@ -11,6 +11,11 @@
     "name": "Ahmed Nzibo",
     "email": "a.nzibo@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kigenofkenya/tesseract"
+  },
+  "license": "MIT",
   "contributors": [],
   "bugs": {},
   "directories": {
@@ -25,7 +30,10 @@
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src-server-feathers/. test/. --config .eslintrc.json",
     "start": "node src-server-feathers/",
-    "mocha": "mocha test/ --recursive --exit"
+    "mocha": "mocha test/ --recursive --exit",
+    "clean": "del public/* '!public/favicon.ico'",
+    "dev:vue-client": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config src-client-vue/webpack.config.js",
+    "build:vue-client": "cross-env NODE_ENV=production webpack --progress --hide-modules  --config src-client-vue/webpack.config.js"
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.0",
@@ -38,16 +46,52 @@
     "@feathersjs/socketio": "^3.0.2",
     "compression": "^1.7.1",
     "cors": "^2.8.4",
+    "element-ui": "^2.1.0",
     "feathers-nedb": "^3.0.0",
     "helmet": "^3.9.0",
     "nedb": "^1.8.0",
     "serve-favicon": "^2.4.5",
+    "vue": "^2.5.13",
     "winston": "^2.4.0"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.3",
+    "css-hot-loader": "^1.3.6",
+    "css-loader": "^0.28.9",
+    "del-cli": "^1.1.0",
     "eslint": "^4.16.0",
+    "eslint-config-vue": "^2.0.2",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-vue": "^4.2.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "glob": "^7.1.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "mocha": "^5.0.0",
+    "node-sass": "^4.7.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss": "^6.0.16",
+    "postcss-flexbugs-fixes": "^3.3.0",
+    "postcss-loader": "^2.0.10",
+    "postcss-nested": "^3.0.0",
+    "postcss-property-lookup": "^2.0.0",
+    "postcss-unprefix": "^2.1.1",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "url-loader": "^0.6.2",
+    "vue-loader": "^14.0.3",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
