@@ -37,10 +37,10 @@
     },
     methods: {
       gogogo () {
-        location.assign('../customer/home.html')
+        location.assign('customer/home.html')
       },
       tototo () {
-        location.assign('../user/login.html')
+        location.assign('user/login.html')
       }
     }
   }

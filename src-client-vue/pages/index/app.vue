@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="dd">
-      Vue Client Index Page a sixth time
+      Vue Client Index Page a seventh time
     </div>
     <img v-bind:src="logoImg">
     <h1></h1>

@@ -40,9 +40,9 @@ glob.sync(resolve(__dirname, 'pages/**/app.js')).forEach(path => {
 const config = {
   entry: entries,
   output: {
-    path: resolve(__dirname,'..', 'public'),
+    path: resolve(__dirname,'..', 'build-client-vue'),
     filename: 'assets/js/[name].js',
-    publicPath: '/'
+    publicPath: '/build-client-vue/'
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -162,7 +162,7 @@ const config = {
       }
     },
     open: true,
-    openPage: ''
+    openPage: 'build-client-vue'
   },
   devtool: '#eval-source-map'
 }

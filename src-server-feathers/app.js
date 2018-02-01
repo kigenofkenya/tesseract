@@ -29,8 +29,28 @@ app.use(compress());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
-// Host the public folder
+
+// Host the public folder n static paths
 app.use('/', express.static(app.get('public')));
+app.use('/vendor', express.static(path.join(__dirname, '../vendor')));
+app.use('/static', express.static(path.join(__dirname, '../static')));
+app.use('/content', express.static(path.join(__dirname, '../content')));
+
+// special static path
+let optionsDevCliStatic = {
+  dotfiles: 'ignore',
+  etag: false,
+  extensions: ['htm', 'html'],
+  // index: false,
+  maxAge: '1d',
+  redirect: false,
+  setHeaders: function (res, path, stat) {
+    res.set('x-timestamp', Date.now())
+  }
+}
+// app.use('/dev-client', express.static( path.join(__dirname, '../dev-client'),optionsDevCliStatic ));
+app.use('/build-client-vue', express.static( path.join(__dirname, '../build-client-vue'),optionsDevCliStatic ));
+app.use('/build-client-react', express.static( path.join(__dirname, '../build-client-react'),optionsDevCliStatic ));
 
 // Set up Plugins and providers
 app.configure(express.rest());

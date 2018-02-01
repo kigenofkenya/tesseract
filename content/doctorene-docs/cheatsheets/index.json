@@ -1,0 +1,6 @@
+{
+	"src_root": "reference-001",
+  "parse_func": "marked",
+  "render_func": "render_func1",
+  "src_files": ["vanilla-js-cheatsheet.md", "chapter2.md","chapter3.md"]
+}
