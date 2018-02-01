@@ -1,6 +1,7 @@
 # User dev directories
 dev/
 dev-client/
+dev-server/
 
 # Logs
 logs

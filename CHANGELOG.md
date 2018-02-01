@@ -1,5 +1,12 @@
 # Change Log
 
+> Getting an integrated client system in place
+
+* adding webbpack middleware and hotreload dependencies.
+* integrated webpack middlewares with feathers using a vanilla hot-client.
+
+## 0.1.12
+
 * Added react client.
 * Added issue log.
 * Removed eslint-vue-config dev dependency.

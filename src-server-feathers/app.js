@@ -30,6 +30,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 
+if (process.env.NODE_ENV !== 'production') {
+  app.get("/", function(req, res) {
+    res.sendFile(path.resolve(__dirname,'..','static','index-multientry.html'));
+  });
+}
 // Host the public folder n static paths
 app.use('/', express.static(app.get('public')));
 app.use('/vendor', express.static(path.join(__dirname, '../vendor')));
@@ -69,5 +74,7 @@ app.use(express.notFound());
 app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
+
+
 
 module.exports = app;
