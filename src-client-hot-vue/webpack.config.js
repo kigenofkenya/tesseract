@@ -3,7 +3,7 @@
 const { join, resolve } = require('path')
 const webpack = require('webpack')
 const glob = require('glob')
-
+const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
@@ -28,7 +28,7 @@ glob.sync(resolve(__dirname, 'pages/**/app.js')).forEach(path => {
   const chunk = path.split('/pages/')[1].split('/app.js')[0]
   // console.log(path)
   // console.log(chunk)
-  entries[chunk] = path
+  entries[chunk] = [path, hotMiddlewareScript]
   chunks.push(chunk)
 })
 // glob.sync('.pages/**/app.js').forEach(path => {
@@ -40,9 +40,9 @@ glob.sync(resolve(__dirname, 'pages/**/app.js')).forEach(path => {
 const config = {
   entry: entries,
   output: {
-    path: resolve(__dirname,'..', 'build-client-vue'),
+    path: resolve(__dirname,'..', 'public'),
     filename: 'assets/js/[name].js',
-    publicPath: '/build-client-vue/'
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -147,23 +147,12 @@ const config = {
     }),
     extractLESS,
     extractSASS,
-    extractCSS
+    extractCSS,
+
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()    
   ],
-  devServer: {
-    host: '127.0.0.1',
-    port: 8010,
-    historyApiFallback: false,
-    noInfo: true,
-    proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:8080',
-        changeOrigin: true,
-        pathRewrite: { '^/api': '' }
-      }
-    },
-    open: true,
-    openPage: 'build-client-vue'
-  },
   devtool: '#eval-source-map'
 }
 
@@ -181,19 +170,6 @@ glob.sync(resolve(__dirname, 'pages/**/*.html')).forEach(path => {
   config.plugins.push(new HtmlWebpackPlugin(htmlConf))
 })
 
-// glob.sync('.pages/**/*.html').forEach(path => {
-//   const chunk = path.split('.pages/')[1].split('/app.html')[0]
-//   const filename = chunk + '.html'
-//   const htmlConf = {
-//     filename: filename,
-//     template: path,
-//     inject: 'body',
-//     favicon: '.assets/img/logo.png',
-//     hash: process.env.NODE_ENV === 'production',
-//     chunks: ['vendors', chunk]
-//   }
-//   config.plugins.push(new HtmlWebpackPlugin(htmlConf))
-// })
 
 module.exports = config
 

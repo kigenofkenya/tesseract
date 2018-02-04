@@ -25,7 +25,7 @@ app.style.verticalAlign = 'middle';
 // require('unknown-module')
 // } syntax-error
 
-updateMessage('hiya boyo')
+updateMessage('hi from vanilla hot client')
 
 if (module.hot) {
   console.log('module hot detected ')

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="dd">
-      Vue Client Index Page a seventh time
+      {{msg}}
     </div>
     <img v-bind:src="logoImg">
     <h1></h1>
@@ -14,7 +14,7 @@ import logo from 'assets/img/logo.png'
 export default {
   data () {
     return {
-      msg: 'Use Vue 2.0 Today!',
+      msg: 'fuck yes baby 5',
       logoImg: logo
     }
   },

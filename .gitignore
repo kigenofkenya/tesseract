@@ -1,7 +1,8 @@
 # User dev directories
-dev/
+# dev/ removed to expose latest feature dev
 dev-client/
 dev-server/
+dev-core/
 
 # Logs
 logs
