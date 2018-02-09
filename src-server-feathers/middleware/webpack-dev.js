@@ -16,11 +16,13 @@ let compilerRefs = {
     webpackConfig: 'src-client-hot-vue',
     statsConfig: {
       colors: true,
-      assets: true,
+      timings: true,
+      modules: false,
+      assets: false,
       children: false,
       chunks: false,
+      chunkModules: false,
       hash: false,
-      timings: false,
       version: false
     }
   }

@@ -3,7 +3,7 @@ const favicon = require('serve-favicon');
 const compress = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
-const winston = require('winston');
+// const winston = require('winston');
 
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 
-const winstonConf = {
+/*const winstonConf = {
   levels: {
     error: 0,
     debug: 1,
@@ -69,7 +69,7 @@ const logger = winston.createLogger({
     new winston.transports.File({ filename: 'combined.log' })
   ]
 });
-
+*/
 //
 // If we're not in production then log to the `console` with the format:
 // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
@@ -106,17 +106,16 @@ let optionsDevCliStatic = {
     res.set('x-timestamp', Date.now())
   }
 }
-if (process.env.NODE_ENV !== 'production') {
-  app.use('/dev-client', express.static( path.join(__dirname, '../dev-client'),optionsDevCliStatic ));
-  app.use('/build-client-react', express.static( path.join(__dirname, '../build-client-react'),optionsDevCliStatic ));
-}
+
+app.use('/dev-client', express.static( path.join(__dirname, '../dev-client'),optionsDevCliStatic ));
+app.use('/build-client-react', express.static( path.join(__dirname, '../build-client-react'),optionsDevCliStatic ));
 
 // Set up Plugins and providers
 app.configure(express.rest());
 app.configure(socketio());
 
 // Configure other middleware (see `middleware/index.js`)
-app.configure(middleware);
+// app.configure(middleware);
 app.configure(authentication);
 // Set up our services (see `services/index.js`)
 app.configure(services);
@@ -148,11 +147,12 @@ app.post('/login',
 );
 
 // Configure a middleware for 404s and the error handler
-app.use(express.notFound());
+// app.use(express.notFound());
 
-app.use(express.errorHandler({ logger }));
-
+// app.use(express.errorHandler({ logger }));
 app.hooks(appHooks);
+app.configure(middleware);
+
 
 
 

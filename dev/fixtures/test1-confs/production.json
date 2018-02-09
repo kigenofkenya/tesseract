@@ -1,0 +1,4 @@
+{
+  "host": "NODE_ENV.FEATHERSHOST",
+  "port": "NODE_ENV.PORT"
+}

@@ -1,0 +1,20 @@
+{
+  #comment
+  host: 'HOST'
+  port: 'PORT'
+  compilerMode: 'COMPILER_MODE'
+  param0: 'stagingenv'
+  AnotherModule: {
+    param1: 'value1'
+    param2: 'value2'
+    lang: [
+      'en'
+      'es'
+    ]
+  },
+  staticArray: [
+    2
+    1
+    3
+  ]
+}
