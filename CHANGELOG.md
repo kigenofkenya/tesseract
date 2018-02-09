@@ -1,5 +1,12 @@
 # Change Log
 
+> further env fixes and modifications to prepare project for deployment on webfaction.com
+
+* moved src-server-feathers/index.js to project root.
+* made modifications to src-client-hot-vue webpack.config.js fixing HMR production error.
+
+## 0.1.14 - 0.1.15
+
 > Integrating system to dynamically pair the client development environment with the server
 
 * removed src-vue-client folder and replaced it with src-vue-client-hot folder.

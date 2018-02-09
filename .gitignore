@@ -1,3 +1,8 @@
+# environment variable files
+.env
+config/production-cli.env
+
+
 # User dev directories
 # dev/ removed to expose latest feature dev
 dev-client/
@@ -58,9 +63,6 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
 
 # IDEs and editors (shamelessly copied from @angular/cli's .gitignore)
 /.idea

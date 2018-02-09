@@ -1,9 +1,9 @@
 {
   "name": "tesseract",
   "description": "server development box",
-  "version": "0.1.13",
+  "version": "0.1.15",
   "homepage": "",
-  "main": "src-server-feathers",
+  "main": "index.js",
   "keywords": [
     "feathers"
   ],
@@ -27,9 +27,9 @@
     "npm": ">= 3.0.0"
   },
   "scripts": {
-    "start": "env-cmd ./config/production-cli.env node src-server-feathers/",
-    "dev": "env-cmd ./config/development-cli.env node src-server-feathers/",
-    "stage": "env-cmd ./config/staging-cli.env node src-server-feathers/",
+    "start": "./node_modules/.bin/env-cmd ./config/production-cli.env node ./index.js",
+    "dev": "./node_modules/.bin/env-cmd ./config/development-cli.env node ./index.js",
+    "stage": "./node_modules/.bin/env-cmd ./config/staging-cli.env node ./index.js",
     "build:vue-hot-client": "cross-env NODE_ENV=production webpack --progress --hide-modules  --config src-client-hot-vue/webpack.config.js",
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src-server-feathers/. test/. --config .eslintrc.json",

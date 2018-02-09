@@ -1,4 +1,4 @@
 {
-  "host": "tesseract-app.feathersjs.com",
+  "host": "HOST",
   "port": "PORT"
 }

@@ -28,7 +28,11 @@ glob.sync(resolve(__dirname, 'pages/**/app.js')).forEach(path => {
   const chunk = path.split('/pages/')[1].split('/app.js')[0]
   // console.log(path)
   // console.log(chunk)
-  entries[chunk] = [path, hotMiddlewareScript]
+  if (process.env.NODE_ENV !== 'production') {
+    entries[chunk] = [path, hotMiddlewareScript]
+  } else {
+    entries[chunk] = path
+  }
   chunks.push(chunk)
 })
 // glob.sync('.pages/**/app.js').forEach(path => {
@@ -150,7 +154,7 @@ const config = {
     extractCSS,
 
     // new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+
     new webpack.NoEmitOnErrorsPlugin()    
   ],
   devtool: '#eval-source-map'
@@ -172,7 +176,11 @@ glob.sync(resolve(__dirname, 'pages/**/*.html')).forEach(path => {
 
 
 module.exports = config
-
+if (process.env.NODE_ENV !== 'production') {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.HotModuleReplacementPlugin()
+  ])
+}
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html

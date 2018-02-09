@@ -1,5 +1,10 @@
 # Issues
 
+* log system is totally fucked. Replace winston with bunyan.
+* auth system needs registration enabled/disabled switching.
+
+## 0.1.14 - 0.1.15
+
 * vue and vanilla clients are integrated in a dynamic way but need to make server more intelligent about selecting which development client is desired.
 * react client not integrated.
 * server is very rudimentary, needs upgrades.

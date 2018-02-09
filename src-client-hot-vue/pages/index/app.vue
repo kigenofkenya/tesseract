@@ -14,7 +14,7 @@ import logo from 'assets/img/logo.png'
 export default {
   data () {
     return {
-      msg: 'fuck yes baby 5',
+      msg: 'fuck yes baby 6',
       logoImg: logo
     }
   },
